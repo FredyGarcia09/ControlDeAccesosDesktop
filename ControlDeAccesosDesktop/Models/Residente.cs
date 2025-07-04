@@ -13,6 +13,7 @@ namespace ControlDeAccesosDesktop.Models
         public string Apellidos { get; set; }
         public string Domicilio { get; set; }
         public string Telefono { get; set; }
+        public string ContrasenaHash { get; set; }
 
         public ICollection<Vehiculo> Vehiculos { get; set; }
         public ICollection<Invitado> Invitados { get; set; }
