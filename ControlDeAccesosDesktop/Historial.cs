@@ -32,5 +32,17 @@ namespace ControlDeAccesosDesktop
             nuevaVentana.Show();
             this.Hide();
         }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            HistorialES nuevaVentana = new HistorialES();
+            nuevaVentana.Show();
+            this.Hide();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

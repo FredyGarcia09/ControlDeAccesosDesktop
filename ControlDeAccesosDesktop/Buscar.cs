@@ -20,10 +20,24 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresa_Click(object sender, EventArgs e)
         {
-            Historial nuevaVentana = new Historial(); 
-            nuevaVentana.Show();             
-            this.Hide();                      
+            Historial nuevaVentana = new Historial();
+            nuevaVentana.Show();
+            this.Hide();
 
+        }
+
+        private void btnresidentes_Click(object sender, EventArgs e)
+        {
+            BuscadorRI nuevaVentana = new BuscadorRI();
+            nuevaVentana.Show();
+            this.Hide();
+        }
+
+        private void btnInvitados_Click(object sender, EventArgs e)
+        {
+            BuscadorRI nuevaVentana = new BuscadorRI();
+            nuevaVentana.Show();
+            this.Hide();
         }
     }
 }

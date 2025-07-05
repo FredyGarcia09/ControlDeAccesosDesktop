@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Buscar));
             btnresidentes = new Button();
             btnInvitados = new Button();
             btnRegresa = new Button();
@@ -36,24 +37,29 @@
             // 
             // btnresidentes
             // 
+            btnresidentes.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btnresidentes.Location = new Point(138, 150);
             btnresidentes.Name = "btnresidentes";
-            btnresidentes.Size = new Size(94, 29);
+            btnresidentes.Size = new Size(116, 29);
             btnresidentes.TabIndex = 0;
             btnresidentes.Text = "Residentes";
             btnresidentes.UseVisualStyleBackColor = true;
+            btnresidentes.Click += btnresidentes_Click;
             // 
             // btnInvitados
             // 
+            btnInvitados.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btnInvitados.Location = new Point(371, 150);
             btnInvitados.Name = "btnInvitados";
             btnInvitados.Size = new Size(94, 29);
             btnInvitados.TabIndex = 1;
             btnInvitados.Text = "Invitados";
             btnInvitados.UseVisualStyleBackColor = true;
+            btnInvitados.Click += btnInvitados_Click;
             // 
             // btnRegresa
             // 
+            btnRegresa.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold);
             btnRegresa.Location = new Point(479, 229);
             btnRegresa.Name = "btnRegresa";
             btnRegresa.Size = new Size(94, 29);
@@ -65,7 +71,9 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonFace;
             label1.Location = new Point(238, 42);
             label1.Name = "label1";
             label1.Size = new Size(137, 37);
@@ -76,6 +84,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(612, 281);
             Controls.Add(label1);
             Controls.Add(btnRegresa);
