@@ -51,7 +51,9 @@ namespace ControlDeAccesosDesktop.Data
                     Apellidos = "Pérez",
                     Domicilio = "Calle Robles 101",
                     Telefono = "555-1001",
-                    ContrasenaHash = "res123"
+                    ContrasenaHash = "res123",
+                    CodigoQR = "RES001"
+
                 },
                 new Residente
                 {
@@ -60,7 +62,8 @@ namespace ControlDeAccesosDesktop.Data
                     Apellidos = "González",
                     Domicilio = "Calle Encinos 202",
                     Telefono = "555-1002",
-                    ContrasenaHash = "res234"
+                    ContrasenaHash = "res234",
+                    CodigoQR = "RES002"
                 },
                 new Residente
                 {
@@ -69,7 +72,8 @@ namespace ControlDeAccesosDesktop.Data
                     Apellidos = "Martínez",
                     Domicilio = "Calle Ciprés 303",
                     Telefono = "555-1003",
-                    ContrasenaHash = "res345"
+                    ContrasenaHash = "res345",
+                    CodigoQR = "RES003"
                 },
                 new Residente
                 {
@@ -78,7 +82,8 @@ namespace ControlDeAccesosDesktop.Data
                     Apellidos = "Rodríguez",
                     Domicilio = "Calle Palmas 404",
                     Telefono = "555-1004",
-                    ContrasenaHash = "res456"
+                    ContrasenaHash = "res456",
+                    CodigoQR = "RES004"
                 },
                 new Residente
                 {
@@ -87,7 +92,8 @@ namespace ControlDeAccesosDesktop.Data
                     Apellidos = "López",
                     Domicilio = "Calle Sauces 505",
                     Telefono = "555-1005",
-                    ContrasenaHash = "res567"
+                    ContrasenaHash = "res567",
+                    CodigoQR = "RES005"
                 }
             );
 
