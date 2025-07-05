@@ -32,6 +32,8 @@
             label1 = new Label();
             btnRegistro = new Button();
             button2 = new Button();
+            btnHistorial = new Button();
+            btnSalir = new Button();
             SuspendLayout();
             // 
             // label1
@@ -68,12 +70,36 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // btnHistorial
+            // 
+            btnHistorial.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHistorial.Location = new Point(205, 259);
+            btnHistorial.Name = "btnHistorial";
+            btnHistorial.Size = new Size(222, 34);
+            btnHistorial.TabIndex = 3;
+            btnHistorial.Text = "Historial";
+            btnHistorial.UseVisualStyleBackColor = true;
+            btnHistorial.Click += btnHistorial_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSalir.Location = new Point(506, 298);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(112, 34);
+            btnSalir.TabIndex = 4;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
             // Historial
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(630, 344);
+            Controls.Add(btnSalir);
+            Controls.Add(btnHistorial);
             Controls.Add(button2);
             Controls.Add(btnRegistro);
             Controls.Add(label1);
@@ -89,5 +115,8 @@
         private Label label1;
         private Button btnRegistro;
         private Button button2;
+        private Button button1;
+        private Button btnHistorial;
+        private Button btnSalir;
     }
 }
