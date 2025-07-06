@@ -1,4 +1,4 @@
-using ControlDeAccesosDesktop.Data;
+using DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 
