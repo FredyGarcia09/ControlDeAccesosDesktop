@@ -14,6 +14,8 @@ namespace Core.Models
         public string Domicilio { get; set; }
         public string Telefono { get; set; }
         public string ContrasenaHash { get; set; }
+        public string CodigoQR { get; set; }
+
 
         public byte[]? Foto { get; set; }
 
