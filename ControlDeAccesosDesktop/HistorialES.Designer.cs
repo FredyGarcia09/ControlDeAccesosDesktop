@@ -44,6 +44,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(688, 273);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // dateTimePicker1
             // 
@@ -61,6 +62,7 @@
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnRegresar
             // 
