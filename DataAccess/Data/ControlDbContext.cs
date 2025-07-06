@@ -16,6 +16,15 @@ namespace DataAccess.Data
         public DbSet<RegistroAcceso> RegistrosAcceso { get; set; }
         public DbSet<Vehiculo> Vehiculos { get; set; }
 
+        public ControlDbContext(DbContextOptions<ControlDbContext> options)
+            : base(options)
+        {
+        }
+
+        public ControlDbContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "server=localhost;database=controlaccesos;user=root;password=root;";
