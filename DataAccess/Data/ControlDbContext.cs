@@ -1,4 +1,4 @@
-﻿using ControlDeAccesosDesktop.Models;
+﻿using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControlDeAccesosDesktop.Data
+namespace DataAccess.Data
 {
     public class ControlDbContext : DbContext
     {

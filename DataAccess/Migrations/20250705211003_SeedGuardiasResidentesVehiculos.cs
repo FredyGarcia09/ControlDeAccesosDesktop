@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace ControlDeAccesosDesktop.Migrations
+namespace DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class SeedGuardiasResidentesVehiculos : Migration

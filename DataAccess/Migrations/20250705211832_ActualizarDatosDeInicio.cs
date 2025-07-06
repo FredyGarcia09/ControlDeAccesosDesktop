@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace ControlDeAccesosDesktop.Migrations
+namespace DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class ActualizarDatosDeInicio : Migration
