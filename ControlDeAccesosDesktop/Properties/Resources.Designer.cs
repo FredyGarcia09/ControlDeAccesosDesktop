@@ -59,5 +59,15 @@ namespace ControlDeAccesosDesktop.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap f1a42fa5011bce2e3b8de8c8b0a50971 {
+            get {
+                object obj = ResourceManager.GetObject("f1a42fa5011bce2e3b8de8c8b0a50971", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
