@@ -46,6 +46,7 @@
             btnEntrada.TabIndex = 0;
             btnEntrada.Text = "Entrada";
             btnEntrada.UseVisualStyleBackColor = true;
+            btnEntrada.Click += btnEntrada_Click;
             // 
             // btnSalidas
             // 
@@ -56,6 +57,7 @@
             btnSalidas.TabIndex = 1;
             btnSalidas.Text = "Salida";
             btnSalidas.UseVisualStyleBackColor = true;
+            btnSalidas.Click += btnSalidas_Click;
             // 
             // btnGuardia
             // 

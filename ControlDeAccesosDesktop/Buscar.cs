@@ -13,6 +13,7 @@ namespace ControlDeAccesosDesktop
 {
     public partial class Buscar : Form
     {
+        public string TipoPersona { get; set; } // "Residente" o "Invitado"
         public Buscar()
         {
             InitializeComponent();
@@ -28,15 +29,17 @@ namespace ControlDeAccesosDesktop
 
         private void btnresidentes_Click(object sender, EventArgs e)
         {
-            BuscadorRI nuevaVentana = new BuscadorRI();
-            nuevaVentana.Show();
+            BuscadorRI ventanaHistorial = new BuscadorRI();
+            ventanaHistorial.TipoPersona = "Residente"; // que buscar
+            ventanaHistorial.Show();                    
             this.Hide();
         }
 
         private void btnInvitados_Click(object sender, EventArgs e)
         {
-            BuscadorRI nuevaVentana = new BuscadorRI();
-            nuevaVentana.Show();
+            BuscadorRI ventanaHistorial = new BuscadorRI();
+            ventanaHistorial.TipoPersona = "Invitado"; // que buscar
+            ventanaHistorial.Show();
             this.Hide();
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,17 +14,33 @@ namespace ControlDeAccesosDesktop
 {
     public partial class Registro : Form
     {
-        public Registro()
+        private Guardia guardia;
+        public Registro(Guardia guardia)
         {
             InitializeComponent();
+            this.guardia = guardia;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Historial nuevaVentana = new Historial(); 
-            nuevaVentana.Show();              
-            this.Hide();                      
+            Historial nuevaVentana = new Historial(guardia);
+            nuevaVentana.Show();
+            this.Hide();
 
+        }
+
+        private void btnEntrada_Click(object sender, EventArgs e)
+        {
+            PanelAcceso nuevaVentana = new PanelAcceso("Entrada", guardia);
+            nuevaVentana.Show();
+            this.Hide();
+        }
+
+        private void btnSalidas_Click(object sender, EventArgs e)
+        {
+            PanelAcceso nuevaVentana = new PanelAcceso("Salida", guardia);
+            nuevaVentana.Show();
+            this.Hide();
         }
     }
 }

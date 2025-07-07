@@ -16,5 +16,10 @@ namespace ControlDeAccesosDesktop
         {
             InitializeComponent();
         }
+
+        private void btnCargarFoto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

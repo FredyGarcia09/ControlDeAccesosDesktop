@@ -34,6 +34,7 @@
             button2 = new Button();
             btnHistorial = new Button();
             btnSalir = new Button();
+            btnCerrar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -92,12 +93,24 @@
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
+            // btnCerrar
+            // 
+            btnCerrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrar.Location = new Point(22, 298);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(152, 34);
+            btnCerrar.TabIndex = 5;
+            btnCerrar.Text = "Cerrar secion";
+            btnCerrar.UseVisualStyleBackColor = true;
+            btnCerrar.Click += button3_Click;
+            // 
             // Historial
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(630, 344);
+            Controls.Add(btnCerrar);
             Controls.Add(btnSalir);
             Controls.Add(btnHistorial);
             Controls.Add(button2);
@@ -106,6 +119,7 @@
             ForeColor = Color.Black;
             Name = "Historial";
             Text = "Form2";
+            Load += Historial_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -118,5 +132,6 @@
         private Button button1;
         private Button btnHistorial;
         private Button btnSalir;
+        private Button btnCerrar;
     }
 }

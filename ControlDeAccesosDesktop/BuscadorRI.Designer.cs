@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscadorRI));
             groupBox1 = new GroupBox();
+            btnRegresa = new Button();
             btnBuscar = new Button();
             txtDomicilio = new TextBox();
             txtNombre = new TextBox();
             gbReIn = new GroupBox();
             btnregresar = new Button();
-            lbllaca = new Label();
+            lblPlaca = new Label();
             lblModelo = new Label();
             lblMarca = new Label();
             label7 = new Label();
@@ -47,10 +48,8 @@
             btnActualizar = new Button();
             btnEliminar = new Button();
             label4 = new Label();
-            lblApellidos = new Label();
-            label3 = new Label();
             label2 = new Label();
-            lblNombbre = new Label();
+            lblNombre = new Label();
             groupBox1.SuspendLayout();
             gbReIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
@@ -59,6 +58,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
+            groupBox1.Controls.Add(btnRegresa);
             groupBox1.Controls.Add(btnBuscar);
             groupBox1.Controls.Add(txtDomicilio);
             groupBox1.Controls.Add(txtNombre);
@@ -68,6 +68,17 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Buscar";
+            // 
+            // btnRegresa
+            // 
+            btnRegresa.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegresa.Location = new Point(45, 214);
+            btnRegresa.Name = "btnRegresa";
+            btnRegresa.Size = new Size(94, 29);
+            btnRegresa.TabIndex = 3;
+            btnRegresa.Text = "Regresar";
+            btnRegresa.UseVisualStyleBackColor = true;
+            btnRegresa.Click += btnRegresa_Click;
             // 
             // btnBuscar
             // 
@@ -87,6 +98,7 @@
             txtDomicilio.Size = new Size(318, 27);
             txtDomicilio.TabIndex = 1;
             txtDomicilio.Text = "Escribe el domicilio.";
+            txtDomicilio.TextChanged += txtDomicilio_TextChanged;
             // 
             // txtNombre
             // 
@@ -95,12 +107,13 @@
             txtNombre.Size = new Size(322, 27);
             txtNombre.TabIndex = 0;
             txtNombre.Text = "Escribe el nombre.";
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // gbReIn
             // 
             gbReIn.BackColor = Color.Transparent;
             gbReIn.Controls.Add(btnregresar);
-            gbReIn.Controls.Add(lbllaca);
+            gbReIn.Controls.Add(lblPlaca);
             gbReIn.Controls.Add(lblModelo);
             gbReIn.Controls.Add(lblMarca);
             gbReIn.Controls.Add(label7);
@@ -112,13 +125,11 @@
             gbReIn.Controls.Add(btnActualizar);
             gbReIn.Controls.Add(btnEliminar);
             gbReIn.Controls.Add(label4);
-            gbReIn.Controls.Add(lblApellidos);
-            gbReIn.Controls.Add(label3);
             gbReIn.Controls.Add(label2);
-            gbReIn.Controls.Add(lblNombbre);
+            gbReIn.Controls.Add(lblNombre);
             gbReIn.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbReIn.ForeColor = SystemColors.ButtonFace;
-            gbReIn.Location = new Point(123, 12);
+            gbReIn.Location = new Point(146, 3);
             gbReIn.Name = "gbReIn";
             gbReIn.Size = new Size(550, 426);
             gbReIn.TabIndex = 1;
@@ -136,14 +147,14 @@
             btnregresar.UseVisualStyleBackColor = true;
             btnregresar.Click += btnregresar_Click;
             // 
-            // lbllaca
+            // lblPlaca
             // 
-            lbllaca.AutoSize = true;
-            lbllaca.Location = new Point(145, 283);
-            lbllaca.Name = "lbllaca";
-            lbllaca.Size = new Size(56, 23);
-            lbllaca.TabIndex = 12;
-            lbllaca.Text = "Placa:";
+            lblPlaca.AutoSize = true;
+            lblPlaca.Location = new Point(145, 283);
+            lblPlaca.Name = "lblPlaca";
+            lblPlaca.Size = new Size(56, 23);
+            lblPlaca.TabIndex = 12;
+            lblPlaca.Text = "Placa:";
             // 
             // lblModelo
             // 
@@ -202,7 +213,7 @@
             // lblTipo
             // 
             lblTipo.AutoSize = true;
-            lblTipo.Location = new Point(118, 156);
+            lblTipo.Location = new Point(113, 39);
             lblTipo.Name = "lblTipo";
             lblTipo.Size = new Size(59, 23);
             lblTipo.TabIndex = 5;
@@ -210,9 +221,9 @@
             // 
             // pbFoto
             // 
-            pbFoto.Location = new Point(168, 26);
+            pbFoto.Location = new Point(392, 29);
             pbFoto.Name = "pbFoto";
-            pbFoto.Size = new Size(204, 112);
+            pbFoto.Size = new Size(143, 112);
             pbFoto.TabIndex = 3;
             pbFoto.TabStop = false;
             // 
@@ -239,47 +250,29 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(45, 156);
+            label4.Location = new Point(40, 39);
             label4.Name = "label4";
             label4.Size = new Size(51, 23);
             label4.TabIndex = 3;
             label4.Text = "Tipo:";
             // 
-            // lblApellidos
-            // 
-            lblApellidos.AutoSize = true;
-            lblApellidos.Location = new Point(339, 187);
-            lblApellidos.Name = "lblApellidos";
-            lblApellidos.Size = new Size(59, 23);
-            lblApellidos.TabIndex = 4;
-            lblApellidos.Text = "label5";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(258, 187);
-            label3.Name = "label3";
-            label3.Size = new Size(90, 23);
-            label3.TabIndex = 2;
-            label3.Text = "Apellidos:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(45, 187);
+            label2.Location = new Point(40, 70);
             label2.Name = "label2";
             label2.Size = new Size(81, 23);
             label2.TabIndex = 1;
             label2.Text = "Nombre:";
             // 
-            // lblNombbre
+            // lblNombre
             // 
-            lblNombbre.AutoSize = true;
-            lblNombbre.Location = new Point(118, 187);
-            lblNombbre.Name = "lblNombbre";
-            lblNombbre.Size = new Size(59, 23);
-            lblNombbre.TabIndex = 0;
-            lblNombbre.Text = "label1";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(130, 70);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(59, 23);
+            lblNombre.TabIndex = 0;
+            lblNombre.Text = "label1";
             // 
             // BuscadorRI
             // 
@@ -307,23 +300,22 @@
         private TextBox txtNombre;
         private Button btnBuscar;
         private GroupBox gbReIn;
-        private Label label3;
         private Label label2;
-        private Label lblNombbre;
+        private Label lblNombre;
         private Button btnActualizar;
         private Button btnEliminar;
         private Label label4;
-        private Label lblApellidos;
         private PictureBox pbFoto;
         private Label lblTipo;
         private Label label5;
         private Label label1;
-        private Label lbllaca;
+        private Label lblPlaca;
         private Label lblModelo;
         private Label lblMarca;
         private Label label7;
         private Label label6;
         private Button button1;
         private Button btnregresar;
+        private Button btnRegresa;
     }
 }

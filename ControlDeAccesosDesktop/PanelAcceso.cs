@@ -11,72 +11,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
 using System.Drawing;
+using Core.Models;
 
 namespace ControlDeAccesosDesktop
 {
     public partial class PanelAcceso : Form
     {
-        private FilterInfoCollection dispositivosVideo;
-        private VideoCaptureDevice fuenteVideo;
 
-        public PanelAcceso()
+        private VideoCaptureDevice fuenteVideo;
+        private string tipo;
+        private Guardia guardia;
+
+        public PanelAcceso(string tipo, Guardia guardia)
         {
             InitializeComponent();
-            dispositivosVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
-            if (dispositivosVideo.Count > 0)
-            {
-                fuenteVideo = new VideoCaptureDevice(dispositivosVideo[0].MonikerString);
-                fuenteVideo.NewFrame += FuenteVideo_NewFrame;
-            }
-            else
-            {
-                MessageBox.Show("No se detectó una cámara.");
-            }
+            this.tipo = tipo;
+            this.guardia = guardia;
         }
 
         private void btnIniciarCamara_Click(object sender, EventArgs e)
         {
-            if (fuenteVideo != null && !fuenteVideo.IsRunning)
-            {
-                pbCamara.SizeMode = PictureBoxSizeMode.StretchImage;
-                fuenteVideo.Start();
-                timerQR.Start();  
-            }
+            
         }
 
-        private void FuenteVideo_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
-            pbCamara.Image = frame;
-        }
-
-        private void timerQR_Tick(object sender, EventArgs e)
-        {
-            if (pbCamara.Image != null)
-            {
-                Bitmap bitmap = new Bitmap(pbCamara.Image);
-                BarcodeReader lector = new BarcodeReader();
-                var resultado = lector.Decode(bitmap);
-                if (resultado != null)
-                {
-                    txtCodigoQR.Text = resultado.Text;
-                    timerQR.Stop();
-                    fuenteVideo.SignalToStop();
-
-                    // Simula el botón buscar QR
-                    btnBuscar.PerformClick();
-                }
-            }
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            if (fuenteVideo != null && fuenteVideo.IsRunning)
-            {
-                fuenteVideo.SignalToStop();
-            }
-            base.OnFormClosing(e);
+            Registro nuevaVentana = new Registro(guardia);
+            nuevaVentana.Show();
+            this.Close();
         }
     }
 }

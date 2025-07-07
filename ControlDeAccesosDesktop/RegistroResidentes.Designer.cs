@@ -55,9 +55,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(188, 20);
+            label1.Location = new Point(215, 27);
             label1.Name = "label1";
-            label1.Size = new Size(333, 30);
+            label1.Size = new Size(422, 37);
             label1.TabIndex = 5;
             label1.Text = "Registra a un residente";
             // 
@@ -67,9 +67,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(60, 91);
+            label2.Location = new Point(69, 121);
             label2.Name = "label2";
-            label2.Size = new Size(90, 20);
+            label2.Size = new Size(109, 26);
             label2.TabIndex = 6;
             label2.Text = "Nombre:";
             // 
@@ -79,9 +79,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(385, 91);
+            label3.Location = new Point(440, 121);
             label3.Name = "label3";
-            label3.Size = new Size(109, 20);
+            label3.Size = new Size(134, 26);
             label3.TabIndex = 7;
             label3.Text = "Apellidos:";
             // 
@@ -91,9 +91,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(60, 156);
+            label4.Location = new Point(69, 208);
             label4.Name = "label4";
-            label4.Size = new Size(111, 20);
+            label4.Size = new Size(135, 26);
             label4.TabIndex = 8;
             label4.Text = "Domicilio:";
             // 
@@ -103,9 +103,9 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Transparent;
-            label5.Location = new Point(385, 147);
+            label5.Location = new Point(440, 196);
             label5.Name = "label5";
-            label5.Size = new Size(103, 20);
+            label5.Size = new Size(128, 26);
             label5.TabIndex = 9;
             label5.Text = "Telefono:";
             // 
@@ -115,9 +115,9 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Transparent;
-            label6.Location = new Point(60, 219);
+            label6.Location = new Point(69, 292);
             label6.Name = "label6";
-            label6.Size = new Size(128, 20);
+            label6.Size = new Size(155, 26);
             label6.TabIndex = 10;
             label6.Text = "Contraseña:";
             // 
@@ -127,74 +127,79 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Transparent;
-            label7.Location = new Point(385, 205);
+            label7.Location = new Point(440, 273);
             label7.Name = "label7";
-            label7.Size = new Size(62, 20);
+            label7.Size = new Size(78, 26);
             label7.TabIndex = 11;
             label7.Text = "Foto:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(156, 88);
+            textBox1.Location = new Point(178, 117);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(174, 23);
+            textBox1.Size = new Size(198, 27);
             textBox1.TabIndex = 12;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(188, 219);
+            textBox2.Location = new Point(215, 292);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(174, 23);
+            textBox2.Size = new Size(198, 27);
             textBox2.TabIndex = 13;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(500, 88);
+            textBox3.Location = new Point(571, 117);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(174, 23);
+            textBox3.Size = new Size(198, 27);
             textBox3.TabIndex = 14;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(177, 156);
+            textBox4.Location = new Point(202, 208);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(174, 23);
+            textBox4.Size = new Size(198, 27);
             textBox4.TabIndex = 15;
             // 
             // mtxtTelefono
             // 
-            mtxtTelefono.Location = new Point(494, 147);
+            mtxtTelefono.Location = new Point(565, 196);
+            mtxtTelefono.Margin = new Padding(3, 4, 3, 4);
             mtxtTelefono.Mask = "000-000-0000";
             mtxtTelefono.Name = "mtxtTelefono";
-            mtxtTelefono.Size = new Size(165, 23);
+            mtxtTelefono.Size = new Size(188, 27);
             mtxtTelefono.TabIndex = 16;
             // 
             // pbFoto
             // 
-            pbFoto.Location = new Point(466, 205);
+            pbFoto.Location = new Point(533, 273);
+            pbFoto.Margin = new Padding(3, 4, 3, 4);
             pbFoto.Name = "pbFoto";
-            pbFoto.Size = new Size(129, 74);
+            pbFoto.Size = new Size(147, 99);
             pbFoto.TabIndex = 17;
             pbFoto.TabStop = false;
             // 
             // btnCargarFoto
             // 
             btnCargarFoto.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCargarFoto.Location = new Point(601, 219);
-            btnCargarFoto.Margin = new Padding(3, 2, 3, 2);
+            btnCargarFoto.Location = new Point(687, 292);
             btnCargarFoto.Name = "btnCargarFoto";
-            btnCargarFoto.Size = new Size(129, 26);
+            btnCargarFoto.Size = new Size(147, 35);
             btnCargarFoto.TabIndex = 18;
             btnCargarFoto.Text = "Cargar Foto";
             btnCargarFoto.UseVisualStyleBackColor = true;
+            btnCargarFoto.Click += btnCargarFoto_Click;
             // 
             // btnAgregar
             // 
             btnAgregar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregar.Location = new Point(69, 352);
-            btnAgregar.Margin = new Padding(3, 2, 3, 2);
+            btnAgregar.Location = new Point(79, 469);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(92, 26);
+            btnAgregar.Size = new Size(105, 35);
             btnAgregar.TabIndex = 19;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -202,10 +207,9 @@
             // btnEditar
             // 
             btnEditar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.Location = new Point(203, 352);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
+            btnEditar.Location = new Point(232, 469);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(92, 26);
+            btnEditar.Size = new Size(105, 35);
             btnEditar.TabIndex = 20;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -213,10 +217,9 @@
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(355, 352);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
+            btnEliminar.Location = new Point(406, 469);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(92, 26);
+            btnEliminar.Size = new Size(105, 35);
             btnEliminar.TabIndex = 21;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -224,20 +227,19 @@
             // btnLimpiar
             // 
             btnLimpiar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLimpiar.Location = new Point(479, 352);
-            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
+            btnLimpiar.Location = new Point(547, 470);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(92, 26);
+            btnLimpiar.Size = new Size(105, 35);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // RegistroResidentes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.f1a42fa5011bce2e3b8de8c8b0a50971;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(btnLimpiar);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
@@ -256,6 +258,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "RegistroResidentes";
             Text = "RegistroResidentes";
             ((System.ComponentModel.ISupportInitialize)pbFoto).EndInit();

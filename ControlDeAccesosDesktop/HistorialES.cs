@@ -42,7 +42,7 @@ namespace ControlDeAccesosDesktop
                 var registrosDelDia = context.RegistrosAcceso
                     .Include(r => r.Residente)
                     .Include(r => r.Invitado)
-                    .Include(r => r.PlacasVehiculo)
+                    //.Include(r => r.PlacasVehiculo)
                     .Where(r => r.FechaHora.Date == fechaSeleccionada)
                     .ToList();
 

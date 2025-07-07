@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,16 @@ namespace ControlDeAccesosDesktop
 {
     public partial class Historial : Form
     {
-        public Historial()
+        private Guardia guardia;
+        public Historial(Guardia guardia)
         {
             InitializeComponent();
+            this.guardia = guardia;
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            Registro nuevaVentana = new Registro();
+            Registro nuevaVentana = new Registro(guardia);
             nuevaVentana.Show();
             this.Hide();
 
@@ -38,11 +41,24 @@ namespace ControlDeAccesosDesktop
             HistorialES nuevaVentana = new HistorialES();
             nuevaVentana.Show();
             this.Hide();
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoginGuardia nuevaVentana = new LoginGuardia();
+            nuevaVentana.Show();
+            this.Hide();
+        }
+
+        private void Historial_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

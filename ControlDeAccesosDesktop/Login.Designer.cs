@@ -91,7 +91,7 @@
             // 
             txtUser.BackColor = SystemColors.InactiveCaption;
             txtUser.ForeColor = SystemColors.InactiveCaptionText;
-            txtUser.Location = new Point(120, 146);
+            txtUser.Location = new Point(120, 145);
             txtUser.Name = "txtUser";
             txtUser.Size = new Size(305, 27);
             txtUser.TabIndex = 1;
