@@ -68,6 +68,7 @@
             btnGuardia.TabIndex = 2;
             btnGuardia.Text = "Guardia";
             btnGuardia.UseVisualStyleBackColor = true;
+            btnGuardia.Click += btnGuardia_Click;
             // 
             // btnResidente
             // 

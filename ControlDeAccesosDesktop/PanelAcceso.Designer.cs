@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             label1 = new Label();
             lblNombre = new Label();
             lblResidente = new Label();
@@ -38,7 +37,6 @@
             btnSalida = new Button();
             txtCodigoQR = new TextBox();
             btnBuscar = new Button();
-            timerQR = new System.Windows.Forms.Timer(components);
             label2 = new Label();
             btnRegresar = new Button();
             ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
@@ -198,7 +196,6 @@
         private Button btnSalida;
         private TextBox txtCodigoQR;
         private Button btnBuscar;
-        private System.Windows.Forms.Timer timerQR;
         private Label label2;
         private Button btnRegresar;
     }

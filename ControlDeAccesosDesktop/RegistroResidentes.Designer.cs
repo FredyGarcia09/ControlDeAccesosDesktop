@@ -43,9 +43,8 @@
             pbFoto = new PictureBox();
             btnCargarFoto = new Button();
             btnAgregar = new Button();
-            btnEditar = new Button();
-            btnEliminar = new Button();
-            btnLimpiar = new Button();
+            btnRegresar = new Button();
+            btnGuardarCambios = new Button();
             ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
             SuspendLayout();
             // 
@@ -143,7 +142,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(215, 292);
+            textBox2.Location = new Point(230, 292);
             textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(198, 27);
@@ -197,42 +196,32 @@
             // btnAgregar
             // 
             btnAgregar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregar.Location = new Point(79, 469);
+            btnAgregar.Location = new Point(73, 455);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(105, 35);
             btnAgregar.TabIndex = 19;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // btnEditar
+            // btnRegresar
             // 
-            btnEditar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.Location = new Point(232, 469);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(105, 35);
-            btnEditar.TabIndex = 20;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            btnRegresar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegresar.Location = new Point(706, 455);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(105, 35);
+            btnRegresar.TabIndex = 22;
+            btnRegresar.Text = "Regresar";
+            btnRegresar.UseVisualStyleBackColor = true;
             // 
-            // btnEliminar
+            // btnGuardarCambios
             // 
-            btnEliminar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(406, 469);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(105, 35);
-            btnEliminar.TabIndex = 21;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLimpiar.Location = new Point(547, 470);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(105, 35);
-            btnLimpiar.TabIndex = 22;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
+            btnGuardarCambios.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardarCambios.Location = new Point(73, 414);
+            btnGuardarCambios.Name = "btnGuardarCambios";
+            btnGuardarCambios.Size = new Size(181, 35);
+            btnGuardarCambios.TabIndex = 24;
+            btnGuardarCambios.Text = "Guardar cambios";
+            btnGuardarCambios.UseVisualStyleBackColor = true;
             // 
             // RegistroResidentes
             // 
@@ -240,9 +229,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.f1a42fa5011bce2e3b8de8c8b0a50971;
             ClientSize = new Size(914, 600);
-            Controls.Add(btnLimpiar);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnEditar);
+            Controls.Add(btnGuardarCambios);
+            Controls.Add(btnRegresar);
             Controls.Add(btnAgregar);
             Controls.Add(btnCargarFoto);
             Controls.Add(pbFoto);
@@ -285,6 +273,7 @@
         private Button btnAgregar;
         private Button btnEditar;
         private Button btnEliminar;
-        private Button btnLimpiar;
+        private Button btnRegresar;
+        private Button btnGuardarCambios;
     }
 }

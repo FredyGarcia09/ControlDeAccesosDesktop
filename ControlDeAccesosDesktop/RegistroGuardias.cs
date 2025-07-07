@@ -1,4 +1,5 @@
 ﻿using Core.Models;
+using DataAccess.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,7 @@ namespace ControlDeAccesosDesktop
 
         private void CargarGuardias()
         {
-            using (var db = new AppDbContext())
+            using (var db = new ControlDbContext())
             {
                 dgvGuardias.DataSource = db.Guardias
                     .Select(g => new { g.Id, g.Nombre, g.Usuario })
@@ -50,7 +51,7 @@ namespace ControlDeAccesosDesktop
                 return;
             }
 
-            using (var db = new AppDbContext())
+            using (var db = new ControlDbContext())
             {
                 // Validar que no exista usuario duplicado
                 if (db.Guardias.Any(g => g.Usuario == txtUsuario.Text.Trim()))

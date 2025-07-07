@@ -42,5 +42,12 @@ namespace ControlDeAccesosDesktop
             nuevaVentana.Show();
             this.Hide();
         }
+
+        private void btnGuardia_Click(object sender, EventArgs e)
+        {
+            RegistroGuardias nuevaVentana = new RegistroGuardias();
+            nuevaVentana.Show();
+            this.Hide();
+        }
     }
 }
