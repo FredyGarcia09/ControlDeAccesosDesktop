@@ -189,6 +189,8 @@ namespace ControlDeAccesosDesktop
         {
             if (videoSource != null && videoSource.IsRunning)
                 videoSource.SignalToStop();
+            Registro nuevaVentana = new Registro(guardia);
+            nuevaVentana.Show();
             this.Close();
         }
 

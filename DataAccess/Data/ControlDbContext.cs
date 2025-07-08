@@ -27,7 +27,7 @@ namespace DataAccess.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "server=localhost;database=controlaccesos;user=root;password=b2r4c6h8;";
+            var connectionString = "server=localhost;database=controlaccesos;user=root;password=root;";
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 

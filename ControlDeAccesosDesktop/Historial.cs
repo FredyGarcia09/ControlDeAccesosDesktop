@@ -53,7 +53,7 @@ namespace ControlDeAccesosDesktop
         {
             LoginGuardia nuevaVentana = new LoginGuardia();
             nuevaVentana.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Historial_Load(object sender, EventArgs e)

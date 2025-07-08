@@ -46,10 +46,11 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtContraseña);
             groupBox1.Controls.Add(txtUser);
-            groupBox1.Location = new Point(117, 35);
+            groupBox1.Location = new Point(102, 26);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(5);
-            groupBox1.Size = new Size(537, 403);
+            groupBox1.Padding = new Padding(4, 4, 4, 4);
+            groupBox1.Size = new Size(470, 302);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
@@ -58,9 +59,10 @@
             // 
             btnEntrar.BackColor = Color.LightCyan;
             btnEntrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEntrar.Location = new Point(377, 341);
+            btnEntrar.Location = new Point(330, 256);
+            btnEntrar.Margin = new Padding(3, 2, 3, 2);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(120, 31);
+            btnEntrar.Size = new Size(105, 26);
             btnEntrar.TabIndex = 3;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = false;
@@ -72,18 +74,19 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(145, 82);
+            label1.Location = new Point(127, 62);
             label1.Name = "label1";
-            label1.Size = new Size(236, 46);
+            label1.Size = new Size(197, 37);
             label1.TabIndex = 0;
             label1.Text = "User Login";
             // 
             // txtContraseña
             // 
             txtContraseña.BackColor = SystemColors.InactiveCaption;
-            txtContraseña.Location = new Point(120, 223);
+            txtContraseña.Location = new Point(105, 167);
+            txtContraseña.Margin = new Padding(3, 2, 3, 2);
             txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(305, 27);
+            txtContraseña.Size = new Size(267, 23);
             txtContraseña.TabIndex = 2;
             txtContraseña.Text = "Password";
             // 
@@ -91,19 +94,21 @@
             // 
             txtUser.BackColor = SystemColors.InactiveCaption;
             txtUser.ForeColor = SystemColors.InactiveCaptionText;
-            txtUser.Location = new Point(120, 145);
+            txtUser.Location = new Point(105, 109);
+            txtUser.Margin = new Padding(3, 2, 3, 2);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(305, 27);
+            txtUser.Size = new Size(267, 23);
             txtUser.TabIndex = 1;
             txtUser.Text = "User Name";
             // 
             // LoginGuardia
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "LoginGuardia";
             Text = "Form1";
             Load += Form1_Load;

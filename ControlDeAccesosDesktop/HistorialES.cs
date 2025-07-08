@@ -29,7 +29,7 @@ namespace ControlDeAccesosDesktop
         {
             Historial nuevaVentana = new Historial(GuardiaLogueado);
             nuevaVentana.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
