@@ -25,6 +25,13 @@ namespace ControlDeAccesosDesktop
             InitializeComponent();
             this.tipo = tipo;
             this.guardia = guardia;
+            if (tipo.Equals("Entrada"))
+            {
+                btnSalida.Visible = false;
+            }
+            else{
+                btnEntrada.Visible = false;
+            }
             btnEntrada.Enabled = false;
             btnSalida.Enabled = false;
         }
@@ -168,7 +175,9 @@ namespace ControlDeAccesosDesktop
                 TipoAcceso = tipo,
                 GuardiaId = guardia.Id,
                 ResidenteId = residente?.Id,
-                InvitadoId = invitado?.Id
+                InvitadoId = invitado?.Id,
+                Notas = txtNotas.Text.Trim() == "" ? null : txtPlacas.Text.Trim(),
+                PlacasVehiculo = txtPlacas.Text.Trim() == "" ? null : txtPlacas.Text.Trim()
             };
 
             context.RegistrosAcceso.Add(nuevo);

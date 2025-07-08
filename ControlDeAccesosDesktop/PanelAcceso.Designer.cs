@@ -41,6 +41,10 @@
             pictureBoxVideo = new PictureBox();
             btnIniciarCamara = new Button();
             lblMensaje = new Label();
+            label2 = new Label();
+            txtNotas = new TextBox();
+            label3 = new Label();
+            txtPlacas = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pbFoto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxVideo).BeginInit();
             SuspendLayout();
@@ -75,7 +79,7 @@
             lblResidente.BackColor = Color.Transparent;
             lblResidente.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblResidente.ForeColor = Color.Transparent;
-            lblResidente.Location = new Point(270, 313);
+            lblResidente.Location = new Point(270, 304);
             lblResidente.Name = "lblResidente";
             lblResidente.Size = new Size(58, 20);
             lblResidente.TabIndex = 8;
@@ -87,7 +91,7 @@
             lblEstado.BackColor = Color.Transparent;
             lblEstado.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEstado.ForeColor = Color.Transparent;
-            lblEstado.Location = new Point(84, 353);
+            lblEstado.Location = new Point(83, 447);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(0, 20);
             lblEstado.TabIndex = 9;
@@ -103,7 +107,7 @@
             // 
             // btnEntrada
             // 
-            btnEntrada.Location = new Point(34, 373);
+            btnEntrada.Location = new Point(33, 467);
             btnEntrada.Name = "btnEntrada";
             btnEntrada.Size = new Size(132, 23);
             btnEntrada.TabIndex = 11;
@@ -113,7 +117,7 @@
             // 
             // btnSalida
             // 
-            btnSalida.Location = new Point(196, 373);
+            btnSalida.Location = new Point(34, 467);
             btnSalida.Name = "btnSalida";
             btnSalida.Size = new Size(132, 23);
             btnSalida.TabIndex = 12;
@@ -143,7 +147,7 @@
             // btnRegresar
             // 
             btnRegresar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegresar.Location = new Point(529, 369);
+            btnRegresar.Location = new Point(689, 467);
             btnRegresar.Margin = new Padding(3, 2, 3, 2);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(160, 27);
@@ -183,12 +187,54 @@
             lblMensaje.Size = new Size(0, 20);
             lblMensaje.TabIndex = 20;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Transparent;
+            label2.Location = new Point(34, 361);
+            label2.Name = "label2";
+            label2.Size = new Size(72, 20);
+            label2.TabIndex = 21;
+            label2.Text = "Notas:";
+            // 
+            // txtNotas
+            // 
+            txtNotas.Location = new Point(133, 363);
+            txtNotas.Name = "txtNotas";
+            txtNotas.Size = new Size(373, 23);
+            txtNotas.TabIndex = 22;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Transparent;
+            label3.Location = new Point(34, 413);
+            label3.Name = "label3";
+            label3.Size = new Size(79, 20);
+            label3.TabIndex = 23;
+            label3.Text = "Placas:";
+            // 
+            // txtPlacas
+            // 
+            txtPlacas.Location = new Point(133, 413);
+            txtPlacas.Name = "txtPlacas";
+            txtPlacas.Size = new Size(276, 23);
+            txtPlacas.TabIndex = 24;
+            // 
             // PanelAcceso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.f1a42fa5011bce2e3b8de8c8b0a50971;
-            ClientSize = new Size(904, 407);
+            ClientSize = new Size(904, 505);
+            Controls.Add(txtPlacas);
+            Controls.Add(label3);
+            Controls.Add(txtNotas);
+            Controls.Add(label2);
             Controls.Add(lblMensaje);
             Controls.Add(btnIniciarCamara);
             Controls.Add(pictureBoxVideo);
@@ -225,5 +271,9 @@
         private PictureBox pictureBoxVideo;
         private Button btnIniciarCamara;
         private Label lblMensaje;
+        private Label label2;
+        private TextBox txtNotas;
+        private Label label3;
+        private TextBox txtPlacas;
     }
 }
