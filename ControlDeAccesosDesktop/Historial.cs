@@ -31,7 +31,7 @@ namespace ControlDeAccesosDesktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar(guardia);
+            BuscadorRI nuevaVentana = new BuscadorRI(guardia);
             nuevaVentana.Show();
             this.Hide();
         }

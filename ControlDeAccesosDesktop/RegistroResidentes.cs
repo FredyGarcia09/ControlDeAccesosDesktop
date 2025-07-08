@@ -48,7 +48,6 @@ namespace ControlDeAccesosDesktop
             using (var context = new ControlDbContext())
             {
                 var residenteDb = context.Residentes
-                    .Include(r => r.Domicilio)
                     .FirstOrDefault(r => r.Id == residente.Id);
                 if (residenteDb != null)
                 {
@@ -56,6 +55,7 @@ namespace ControlDeAccesosDesktop
                     txtApellidos.Text = residenteDb.Apellidos;
                     txtTelefono.Text = residenteDb.Telefono;
                     txtDomicilio.Text = residenteDb.Domicilio;
+                    txtContrasena.Text = residenteDb.ContrasenaHash;
 
                     if (residenteDb.Foto != null)
                     {

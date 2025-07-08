@@ -16,7 +16,7 @@ namespace ControlDeAccesosDesktop
 
     public partial class BuscadorRI : Form
     {
-        public string TipoPersona { get; internal set; }
+
         private Guardia guardia;
 
         private Residente residenteEncontrado;
@@ -30,12 +30,6 @@ namespace ControlDeAccesosDesktop
         {
             gbReIn.Visible = false;
 
-            // Si es invitado, desactivar el botón actualizar
-            if (TipoPersona == "Invitado")
-            {
-                btnActualizar.Enabled = false;
-                btnActualizar.Visible = false; // opcional: ocultar botón si es invitado
-            }
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -47,9 +41,7 @@ namespace ControlDeAccesosDesktop
                 string nombre = txtNombre.Text.Trim().ToLower();
                 string direccion = txtDomicilio.Text.Trim().ToLower();
 
-                if (TipoPersona == "Residente")
-                {
-                    residenteEncontrado = context.Residentes
+                residenteEncontrado = context.Residentes
                         .Include(r => r.Vehiculos)
                         .FirstOrDefault(r =>
                             (!string.IsNullOrEmpty(nombre) &&
@@ -58,60 +50,35 @@ namespace ControlDeAccesosDesktop
                              r.Domicilio.ToLower().Contains(direccion))
                         );
 
-                    if (residenteEncontrado != null)
-                    {
-                        lblNombre.Text = residenteEncontrado.Nombre + " " + residenteEncontrado.Apellidos;
-                        lblTipo.Text = "Residente";
-
-                        // Vehículos
-                        dgvVehiculos.DataSource = residenteEncontrado.Vehiculos
-                            .Select(v => new { v.Marca, v.Modelo, v.Placas }).ToList();
-
-                        // Foto (BLOB → Image)
-                        if (residenteEncontrado.Foto != null && residenteEncontrado.Foto.Length > 0)
-                        {
-                            using (var ms = new MemoryStream(residenteEncontrado.Foto))
-                            {
-                                pbFoto.Image = Image.FromStream(ms);
-                            }
-                        }
-                        else
-                        {
-                            pbFoto.Image = null;
-                        }
-
-                        btnActualizar.Enabled = true;
-                        btnActualizar.Visible = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Residente no encontrado.");
-                        LimpiarCampos();
-                    }
-                }
-                else if (TipoPersona == "Invitado")
+                if (residenteEncontrado != null)
                 {
-                    var invitado = context.Invitados
-                        .FirstOrDefault(i =>
-                            (!string.IsNullOrEmpty(nombre) &&
-                             (i.Nombre + " " + i.Apellidos).ToLower().Contains(nombre))
-                        );
+                    lblNombre.Text = residenteEncontrado.Nombre + " " + residenteEncontrado.Apellidos;
+                    lblTipo.Text = "Residente";
 
-                    if (invitado != null)
+                    // Vehículos
+                    dgvVehiculos.DataSource = residenteEncontrado.Vehiculos
+                        .Select(v => new { v.Marca, v.Modelo, v.Placas }).ToList();
+
+                    // Foto (BLOB → Image)
+                    if (residenteEncontrado.Foto != null && residenteEncontrado.Foto.Length > 0)
                     {
-                        lblNombre.Text = invitado.Nombre + " " + invitado.Apellidos;
-                        lblTipo.Text = "Invitado";
-
-                        dgvVehiculos.DataSource = null;
-                        pbFoto.Image = null;
-                        btnActualizar.Enabled = false;
-                        btnActualizar.Visible = false;
+                        using (var ms = new MemoryStream(residenteEncontrado.Foto))
+                        {
+                            pbFoto.Image = Image.FromStream(ms);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Invitado no encontrado.");
-                        LimpiarCampos();
+                        pbFoto.Image = null;
                     }
+
+                    btnActualizar.Enabled = true;
+                    btnActualizar.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Residente no encontrado.");
+                    LimpiarCampos();
                 }
             }
         }
@@ -124,7 +91,7 @@ namespace ControlDeAccesosDesktop
         }
         private void btnregresar_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar(guardia);
+            Historial nuevaVentana = new Historial(guardia);
             nuevaVentana.Show();
             this.Close();
         }
@@ -141,7 +108,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresa_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar(guardia);
+            Historial nuevaVentana = new Historial(guardia);
             nuevaVentana.Show();
             this.Close();
         }
