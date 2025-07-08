@@ -15,9 +15,14 @@ namespace ControlDeAccesosDesktop
 {
     public partial class HistorialES : Form
     {
-        public HistorialES()
+        public Guardia GuardiaLogueado { get; set; }
+        public HistorialES(Guardia guardia)
         {
             InitializeComponent();
+            GuardiaLogueado = guardia;
+            lblGuardiaActual.Text = $"Consulta hecha por: {GuardiaLogueado.Nombre}";
+            cmbTipoPersona.SelectedIndex = 0;
+            cmbTipoAcceso.SelectedIndex = 0;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -34,51 +39,50 @@ namespace ControlDeAccesosDesktop
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            DateTime fechaSeleccionada = dtpFecha.Value.Date;
+            string tipoPersona = cmbTipoPersona.SelectedItem.ToString();
+            string tipoAcceso = cmbTipoAcceso.SelectedItem.ToString();
+
             using (var context = new ControlDbContext())
             {
-                var fechaSeleccionada = dateTimePicker1.Value.Date;
-
-                // Traemos todos los accesos del día, con datos relacionados
-                var registrosDelDia = context.RegistrosAcceso
+                var query = context.RegistrosAcceso
                     .Include(r => r.Residente)
-                    .Include(r => r.Invitado)
-                    //.Include(r => r.PlacasVehiculo)
-                    .Where(r => r.FechaHora.Date == fechaSeleccionada)
-                    .ToList();
+                    .Include(r => r.Invitado).ThenInclude(i => i.Residente)
+                    .Include(r => r.Guardia)
+                    .AsQueryable();
 
-                // Agrupar por persona (Residente o Invitado) y vehículo
-                var accesosAgrupados = registrosDelDia
-                    .GroupBy(r => new
-                    {
-                        PersonaId = r.ResidenteId ?? r.InvitadoId ?? 0,
-                        EsResidente = r.ResidenteId != null,
-                        PlacasVehiculo = r.PlacasVehiculo ?? ""
-                    })
-                    .Select(g => new
-                    {
-                        Tipo = g.Key.EsResidente ? "Residente" : "Invitado",
+                // Filtro por fecha
+                query = query.Where(r => r.FechaHora.Date == fechaSeleccionada);
 
-                        Nombre = g.Key.EsResidente
-                            ? g.FirstOrDefault(r => r.Residente != null)?.Residente?.Nombre + " " + g.FirstOrDefault(r => r.Residente != null)?.Residente?.Apellidos
-                            : g.FirstOrDefault(r => r.Invitado != null)?.Invitado?.Nombre + " " + g.FirstOrDefault(r => r.Invitado != null)?.Invitado?.Apellidos,
+                // Filtro por tipo de persona
+                if (tipoPersona == "Residente")
+                    query = query.Where(r => r.ResidenteId != null);
+                else if (tipoPersona == "Invitado")
+                    query = query.Where(r => r.InvitadoId != null);
 
-                        Entrada = g.Where(r => r.TipoAcceso == TipoAcceso.Entrada)
-                                  .OrderBy(r => r.FechaHora)
-                                  .Select(r => r.FechaHora.ToString("HH:mm"))
-                                  .FirstOrDefault() ?? "No registrado",
+                // Filtro por tipo de acceso
+                if (tipoAcceso == "Entrada")
+                    query = query.Where(r => r.TipoAcceso == TipoAcceso.Entrada);
+                else if (tipoAcceso == "Salida")
+                    query = query.Where(r => r.TipoAcceso == TipoAcceso.Salida);
 
-                        Salida = g.Where(r => r.TipoAcceso == TipoAcceso.Salida)
-                                  .OrderByDescending(r => r.FechaHora)
-                                  .Select(r => r.FechaHora.ToString("HH:mm"))
-                                  .FirstOrDefault() ?? "No registrado",
+                var resultados = query.Select(r => new
+                {
+                    Fecha = r.FechaHora.ToString("dd/MM/yyyy"),
+                    Hora = r.FechaHora.ToString("HH:mm"),
+                    TipoAcceso = r.TipoAcceso.ToString(),
+                    TipoPersona = r.ResidenteId != null ? "Residente" : "Invitado",
+                    Nombre = r.ResidenteId != null
+                        ? r.Residente.Nombre + " " + r.Residente.Apellidos
+                        : r.Invitado.Nombre + " " + r.Invitado.Apellidos,
+                    InvitadoPor = r.InvitadoId != null
+                        ? r.Invitado.Residente.Nombre + " " + r.Invitado.Residente.Apellidos
+                        : "-",
+                    Guardia = r.Guardia.Nombre
+                })
+                .ToList();
 
-                        TieneVehiculo = string.IsNullOrEmpty(g.Key.PlacasVehiculo) ? "No" : "Sí",
-
-                        Placas = string.IsNullOrEmpty(g.Key.PlacasVehiculo) ? "" : g.Key.PlacasVehiculo
-                    })
-                    .ToList();
-
-                dataGridView1.DataSource = accesosAgrupados;
+                dgvHistorial.DataSource = resultados;
             }
         }
     }

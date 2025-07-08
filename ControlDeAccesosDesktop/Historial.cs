@@ -38,7 +38,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            HistorialES nuevaVentana = new HistorialES();
+            HistorialES nuevaVentana = new HistorialES(Guardia);
             nuevaVentana.Show();
             this.Hide();
 
