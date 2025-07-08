@@ -18,13 +18,15 @@ namespace ControlDeAccesosDesktop
     public partial class RegistroResidentes : Form
     {
         private Residente residente;
+        private Guardia guardia;
         private byte[] fotoSeleccionada = null;
 
-        public RegistroResidentes(Residente residente)
+        public RegistroResidentes(Residente residente, Guardia guardia)
         {
             InitializeComponent();
             this.residente = residente;
-            if(residente == null)
+            this.guardia = guardia;
+            if (residente == null)
             {
                 btnAgregar.Visible = true;
                 btnGuardarCambios.Visible = false;
@@ -53,8 +55,8 @@ namespace ControlDeAccesosDesktop
                     txtNombre.Text = residenteDb.Nombre;
                     txtApellidos.Text = residenteDb.Apellidos;
                     txtTelefono.Text = residenteDb.Telefono;
-                    txtDomicilio.Text = residente.Domicilio;
-                    
+                    txtDomicilio.Text = residenteDb.Domicilio;
+
                     if (residenteDb.Foto != null)
                     {
                         fotoSeleccionada = residenteDb.Foto;
@@ -85,6 +87,65 @@ namespace ControlDeAccesosDesktop
                 }
 
             }
+        }
+
+        private async void btnAgregar_Click(object sender, EventArgs e)
+        {
+            var nuevoResidente = new Residente
+            {
+                Nombre = txtNombre.Text,
+                Apellidos = txtApellidos.Text,
+                Domicilio = txtDomicilio.Text,
+                Telefono = txtTelefono.Text,
+                ContrasenaHash = txtContrasena.Text,
+                CodigoQR = GenerarCodigoQR(),
+                Foto = fotoSeleccionada,
+                Vehiculos = new List<Vehiculo>(),
+                Invitados = new List<Invitado>(),
+                RegistrosAcceso = new List<RegistroAcceso>()
+            };
+
+            using var context = new ControlDbContext();
+            context.Residentes.Add(nuevoResidente);
+            await context.SaveChangesAsync();
+
+            MessageBox.Show("Residente registrado con éxito.");
+            Registro nuevaVentana = new Registro(guardia);
+            nuevaVentana.Show();
+            this.Close();
+        }
+
+        private string GenerarCodigoQR()
+        {
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            string codigo;
+
+            using (var context = new ControlDbContext())
+            {
+                do
+                {
+                    // Genera una cadena aleatoria de 16 caracteres
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < 16; i++)
+                    {
+                        sb.Append(caracteres[random.Next(caracteres.Length)]);
+                    }
+                    codigo = sb.ToString();
+
+                    // Verifica que no exista
+                } while (context.Residentes.Any(r => r.CodigoQR == codigo) ||
+                         context.Invitados.Any(i => i.CodigoQR == codigo));
+            }
+
+            return codigo;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Registro nuevaVentana = new Registro(guardia);
+            nuevaVentana.Show();
+            this.Close();
         }
     }
 }

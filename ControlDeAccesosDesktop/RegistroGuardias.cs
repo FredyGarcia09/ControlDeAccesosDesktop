@@ -14,9 +14,11 @@ namespace ControlDeAccesosDesktop
 {
     public partial class RegistroGuardias : Form
     {
-        public RegistroGuardias()
+        private Guardia guardia;
+        public RegistroGuardias(Guardia guardia)
         {
             InitializeComponent();
+            this.guardia = guardia;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -62,7 +64,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            HistorialES nuevaVentana = new HistorialES(Guardia);
+            Registro nuevaVentana = new Registro(guardia);
             nuevaVentana.Show();
             this.Close();
         }
