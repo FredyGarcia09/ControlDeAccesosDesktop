@@ -98,12 +98,12 @@ namespace ControlDeAccesosDesktop
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            txtDomicilio.Enabled = string.IsNullOrWhiteSpace(txtNombre.Text);
+            txtDomicilio.Enabled = string.IsNullOrWhiteSpace(txtNombre.Text) || txtNombre.Text == "Escribe el nombre.";
         }
 
         private void txtDomicilio_TextChanged(object sender, EventArgs e)
         {
-            txtNombre.Enabled = string.IsNullOrWhiteSpace(txtDomicilio.Text);
+            txtNombre.Enabled = string.IsNullOrWhiteSpace(txtDomicilio.Text) || txtDomicilio.Text == "Escribe el domicilio.";
         }
 
         private void btnRegresa_Click(object sender, EventArgs e)
