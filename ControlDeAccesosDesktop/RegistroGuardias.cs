@@ -68,5 +68,10 @@ namespace ControlDeAccesosDesktop
             nuevaVentana.Show();
             this.Close();
         }
+
+        private void RegistroGuardias_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

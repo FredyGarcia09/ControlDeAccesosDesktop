@@ -85,5 +85,10 @@ namespace ControlDeAccesosDesktop
                 dgvHistorial.DataSource = resultados;
             }
         }
+
+        private void HistorialES_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

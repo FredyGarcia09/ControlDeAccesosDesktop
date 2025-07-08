@@ -152,6 +152,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "RegistroGuardias";
             Text = "RegistroGuardias";
+            FormClosing += RegistroGuardias_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

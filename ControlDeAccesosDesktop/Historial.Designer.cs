@@ -43,19 +43,18 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(47, 34);
+            label1.Location = new Point(54, 45);
             label1.Name = "label1";
-            label1.Size = new Size(430, 20);
+            label1.Size = new Size(521, 26);
             label1.TabIndex = 0;
             label1.Text = "Selecciona la operación que quieres hacer .";
             // 
             // btnRegistro
             // 
             btnRegistro.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistro.Location = new Point(179, 94);
-            btnRegistro.Margin = new Padding(3, 2, 3, 2);
+            btnRegistro.Location = new Point(205, 125);
             btnRegistro.Name = "btnRegistro";
-            btnRegistro.Size = new Size(194, 26);
+            btnRegistro.Size = new Size(222, 35);
             btnRegistro.TabIndex = 1;
             btnRegistro.Text = "Registro";
             btnRegistro.UseVisualStyleBackColor = true;
@@ -64,10 +63,9 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(179, 146);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(205, 195);
             button2.Name = "button2";
-            button2.Size = new Size(194, 26);
+            button2.Size = new Size(222, 35);
             button2.TabIndex = 2;
             button2.Text = "Buscar";
             button2.UseVisualStyleBackColor = true;
@@ -76,10 +74,9 @@
             // btnHistorial
             // 
             btnHistorial.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHistorial.Location = new Point(179, 194);
-            btnHistorial.Margin = new Padding(3, 2, 3, 2);
+            btnHistorial.Location = new Point(205, 259);
             btnHistorial.Name = "btnHistorial";
-            btnHistorial.Size = new Size(194, 26);
+            btnHistorial.Size = new Size(222, 35);
             btnHistorial.TabIndex = 3;
             btnHistorial.Text = "Historial";
             btnHistorial.UseVisualStyleBackColor = true;
@@ -88,10 +85,9 @@
             // btnSalir
             // 
             btnSalir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(443, 224);
-            btnSalir.Margin = new Padding(3, 2, 3, 2);
+            btnSalir.Location = new Point(506, 299);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(98, 26);
+            btnSalir.Size = new Size(112, 35);
             btnSalir.TabIndex = 4;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -100,10 +96,9 @@
             // btnCerrar
             // 
             btnCerrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrar.Location = new Point(19, 224);
-            btnCerrar.Margin = new Padding(3, 2, 3, 2);
+            btnCerrar.Location = new Point(22, 299);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(133, 26);
+            btnCerrar.Size = new Size(152, 35);
             btnCerrar.TabIndex = 5;
             btnCerrar.Text = "Cerrar sesión";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -111,10 +106,10 @@
             // 
             // Historial
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(551, 258);
+            ClientSize = new Size(630, 344);
             Controls.Add(btnCerrar);
             Controls.Add(btnSalir);
             Controls.Add(btnHistorial);
@@ -122,9 +117,9 @@
             Controls.Add(btnRegistro);
             Controls.Add(label1);
             ForeColor = Color.Black;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Historial";
             Text = "Form2";
+            FormClosing += Historial_FormClosing;
             Load += Historial_Load;
             ResumeLayout(false);
             PerformLayout();

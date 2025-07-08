@@ -50,5 +50,46 @@ namespace ControlDeAccesosDesktop
             }
 
         }
+
+        private void LoginGuardia_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtUser_Click(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "User Name")
+            {
+                txtUser.Text = "";
+                txtUser.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtUser_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUser.Text))
+            {
+                txtUser.Text = "User Name";
+                txtUser.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtContraseña_Click(object sender, EventArgs e)
+        {
+            if (txtContraseña.Text == "Password")
+            {
+                txtContraseña.Text = "";
+                txtContraseña.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtContraseña_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtContraseña.Text))
+            {
+                txtContraseña.Text = "Password";
+                txtContraseña.ForeColor = Color.Gray;
+            }
+        }
     }
 }

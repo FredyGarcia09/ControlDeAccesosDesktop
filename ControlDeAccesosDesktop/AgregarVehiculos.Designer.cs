@@ -44,10 +44,9 @@
             // btnRegresar
             // 
             btnRegresar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegresar.Location = new Point(404, 292);
-            btnRegresar.Margin = new Padding(3, 2, 3, 2);
+            btnRegresar.Location = new Point(462, 389);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(98, 26);
+            btnRegresar.Size = new Size(112, 35);
             btnRegresar.TabIndex = 22;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -56,10 +55,9 @@
             // btnAgregar
             // 
             btnAgregar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregar.Location = new Point(104, 292);
-            btnAgregar.Margin = new Padding(3, 2, 3, 2);
+            btnAgregar.Location = new Point(119, 389);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(98, 26);
+            btnAgregar.Size = new Size(112, 35);
             btnAgregar.TabIndex = 21;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -67,16 +65,18 @@
             // 
             // txtModelo
             // 
-            txtModelo.Location = new Point(213, 185);
+            txtModelo.Location = new Point(243, 247);
+            txtModelo.Margin = new Padding(3, 4, 3, 4);
             txtModelo.Name = "txtModelo";
-            txtModelo.Size = new Size(278, 23);
+            txtModelo.Size = new Size(317, 27);
             txtModelo.TabIndex = 19;
             // 
             // txtMarca
             // 
-            txtMarca.Location = new Point(212, 128);
+            txtMarca.Location = new Point(242, 171);
+            txtMarca.Margin = new Padding(3, 4, 3, 4);
             txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(278, 23);
+            txtMarca.Size = new Size(317, 27);
             txtMarca.TabIndex = 18;
             // 
             // label4
@@ -85,9 +85,9 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Transparent;
-            label4.Location = new Point(110, 244);
+            label4.Location = new Point(126, 325);
             label4.Name = "label4";
-            label4.Size = new Size(79, 20);
+            label4.Size = new Size(96, 26);
             label4.TabIndex = 17;
             label4.Text = "Placas:";
             // 
@@ -97,9 +97,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
-            label3.Location = new Point(110, 188);
+            label3.Location = new Point(126, 251);
             label3.Name = "label3";
-            label3.Size = new Size(89, 20);
+            label3.Size = new Size(110, 26);
             label3.TabIndex = 16;
             label3.Text = "Modelo:";
             // 
@@ -109,9 +109,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(109, 131);
+            label2.Location = new Point(125, 175);
             label2.Name = "label2";
-            label2.Size = new Size(76, 20);
+            label2.Size = new Size(92, 26);
             label2.TabIndex = 15;
             label2.Text = "Marca:";
             // 
@@ -121,9 +121,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(213, 34);
+            label1.Location = new Point(243, 45);
             label1.Name = "label1";
-            label1.Size = new Size(196, 20);
+            label1.Size = new Size(241, 26);
             label1.TabIndex = 14;
             label1.Text = "Agrega un vehiculo";
             label1.Click += label1_Click;
@@ -134,33 +134,35 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Transparent;
-            label5.Location = new Point(112, 73);
+            label5.Location = new Point(128, 97);
             label5.Name = "label5";
-            label5.Size = new Size(110, 20);
+            label5.Size = new Size(134, 26);
             label5.TabIndex = 23;
             label5.Text = "Residente:";
             // 
             // cmbResidentes
             // 
             cmbResidentes.FormattingEnabled = true;
-            cmbResidentes.Location = new Point(244, 75);
+            cmbResidentes.Location = new Point(279, 100);
+            cmbResidentes.Margin = new Padding(3, 4, 3, 4);
             cmbResidentes.Name = "cmbResidentes";
-            cmbResidentes.Size = new Size(247, 23);
+            cmbResidentes.Size = new Size(282, 28);
             cmbResidentes.TabIndex = 24;
             // 
             // txtPlacas
             // 
-            txtPlacas.Location = new Point(213, 246);
+            txtPlacas.Location = new Point(243, 328);
+            txtPlacas.Margin = new Padding(3, 4, 3, 4);
             txtPlacas.Name = "txtPlacas";
-            txtPlacas.Size = new Size(278, 23);
+            txtPlacas.Size = new Size(317, 27);
             txtPlacas.TabIndex = 25;
             // 
             // AgregarVehiculos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.f1a42fa5011bce2e3b8de8c8b0a50971;
-            ClientSize = new Size(583, 344);
+            ClientSize = new Size(666, 459);
             Controls.Add(txtPlacas);
             Controls.Add(cmbResidentes);
             Controls.Add(label5);
@@ -172,8 +174,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AgregarVehiculos";
             Text = "AgregarVehiculos";
+            FormClosing += AgregarVehiculos_FormClosing;
             Load += AgregarVehiculos_Load;
             ResumeLayout(false);
             PerformLayout();

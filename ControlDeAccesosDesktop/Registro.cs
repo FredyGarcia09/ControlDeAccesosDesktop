@@ -63,5 +63,10 @@ namespace ControlDeAccesosDesktop
             nuevaVentana.Show();
             this.Hide();
         }
+
+        private void Registro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

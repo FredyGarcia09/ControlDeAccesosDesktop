@@ -126,5 +126,46 @@ namespace ControlDeAccesosDesktop
                 MessageBox.Show("Primero realiza una búsqueda válida.");
             }
         }
+
+        private void BuscadorRI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtNombre_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "Escribe el nombre.")
+            {
+                txtNombre.Text = "";
+                txtNombre.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                txtNombre.Text = "Escribe el nombre.";
+                txtNombre.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtDomicilio_Click(object sender, EventArgs e)
+        {
+            if (txtDomicilio.Text == "Escribe el domicilio.")
+            {
+                txtDomicilio.Text = "";
+                txtDomicilio.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtDomicilio_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDomicilio.Text))
+            {
+                txtDomicilio.Text = "Escribe el domicilio.";
+                txtDomicilio.ForeColor = Color.Gray;
+            }
+        }
     }
 }

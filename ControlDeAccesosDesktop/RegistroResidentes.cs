@@ -143,7 +143,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            if(residente != null)
+            if (residente != null)
             {
                 BuscadorRI nuevaVentana = new BuscadorRI(guardia);
                 nuevaVentana.Show();
@@ -155,7 +155,7 @@ namespace ControlDeAccesosDesktop
                 nuevaVentana.Show();
                 this.Close();
             }
-                
+
         }
 
         private async void btnGuardarCambios_Click(object sender, EventArgs e)
@@ -207,6 +207,11 @@ namespace ControlDeAccesosDesktop
             {
                 MessageBox.Show($"Error al guardar los cambios: {ex.Message}");
             }
+        }
+
+        private void RegistroResidentes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

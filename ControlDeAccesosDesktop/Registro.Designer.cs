@@ -41,10 +41,9 @@
             // btnEntrada
             // 
             btnEntrada.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEntrada.Location = new Point(90, 112);
-            btnEntrada.Margin = new Padding(3, 2, 3, 2);
+            btnEntrada.Location = new Point(103, 149);
             btnEntrada.Name = "btnEntrada";
-            btnEntrada.Size = new Size(124, 28);
+            btnEntrada.Size = new Size(142, 37);
             btnEntrada.TabIndex = 0;
             btnEntrada.Text = "Entrada";
             btnEntrada.UseVisualStyleBackColor = true;
@@ -53,10 +52,9 @@
             // btnSalidas
             // 
             btnSalidas.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSalidas.Location = new Point(336, 112);
-            btnSalidas.Margin = new Padding(3, 2, 3, 2);
+            btnSalidas.Location = new Point(384, 149);
             btnSalidas.Name = "btnSalidas";
-            btnSalidas.Size = new Size(126, 28);
+            btnSalidas.Size = new Size(144, 37);
             btnSalidas.TabIndex = 1;
             btnSalidas.Text = "Salida";
             btnSalidas.UseVisualStyleBackColor = true;
@@ -65,10 +63,9 @@
             // btnGuardia
             // 
             btnGuardia.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardia.Location = new Point(90, 168);
-            btnGuardia.Margin = new Padding(3, 2, 3, 2);
+            btnGuardia.Location = new Point(103, 224);
             btnGuardia.Name = "btnGuardia";
-            btnGuardia.Size = new Size(124, 28);
+            btnGuardia.Size = new Size(142, 37);
             btnGuardia.TabIndex = 2;
             btnGuardia.Text = "Guardia";
             btnGuardia.UseVisualStyleBackColor = true;
@@ -77,10 +74,9 @@
             // btnResidente
             // 
             btnResidente.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnResidente.Location = new Point(336, 168);
-            btnResidente.Margin = new Padding(3, 2, 3, 2);
+            btnResidente.Location = new Point(384, 224);
             btnResidente.Name = "btnResidente";
-            btnResidente.Size = new Size(126, 28);
+            btnResidente.Size = new Size(144, 37);
             btnResidente.TabIndex = 3;
             btnResidente.Text = "Residente";
             btnResidente.UseVisualStyleBackColor = true;
@@ -92,19 +88,18 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(200, 52);
+            label1.Location = new Point(229, 69);
             label1.Name = "label1";
-            label1.Size = new Size(143, 30);
+            label1.Size = new Size(182, 37);
             label1.TabIndex = 4;
             label1.Text = "Registro.";
             // 
             // btnRegresar
             // 
             btnRegresar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegresar.Location = new Point(487, 242);
-            btnRegresar.Margin = new Padding(3, 2, 3, 2);
+            btnRegresar.Location = new Point(557, 323);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(82, 30);
+            btnRegresar.Size = new Size(94, 40);
             btnRegresar.TabIndex = 5;
             btnRegresar.Text = "Cancelar";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -113,10 +108,9 @@
             // btnVehiculos
             // 
             btnVehiculos.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVehiculos.Location = new Point(217, 222);
-            btnVehiculos.Margin = new Padding(3, 2, 3, 2);
+            btnVehiculos.Location = new Point(248, 296);
             btnVehiculos.Name = "btnVehiculos";
-            btnVehiculos.Size = new Size(126, 28);
+            btnVehiculos.Size = new Size(144, 37);
             btnVehiculos.TabIndex = 6;
             btnVehiculos.Text = "Vehiculos";
             btnVehiculos.UseVisualStyleBackColor = true;
@@ -124,10 +118,10 @@
             // 
             // Registro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(597, 295);
+            ClientSize = new Size(682, 393);
             Controls.Add(btnVehiculos);
             Controls.Add(btnRegresar);
             Controls.Add(label1);
@@ -135,9 +129,9 @@
             Controls.Add(btnGuardia);
             Controls.Add(btnSalidas);
             Controls.Add(btnEntrada);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Registro";
             Text = "Registro";
+            FormClosing += Registro_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

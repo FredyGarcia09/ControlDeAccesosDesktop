@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ControlDeAccesosDesktop
 {
-    
+
     public partial class AgregarVehiculos : Form
     {
         private Guardia guardia;
@@ -95,6 +95,11 @@ namespace ControlDeAccesosDesktop
             Registro nuevaVentana = new Registro(guardia);
             nuevaVentana.Show();
             this.Close();
+        }
+
+        private void AgregarVehiculos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 
