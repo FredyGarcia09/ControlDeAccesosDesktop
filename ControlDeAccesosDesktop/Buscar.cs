@@ -32,7 +32,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnresidentes_Click(object sender, EventArgs e)
         {
-            BuscadorRI ventanaHistorial = new BuscadorRI();
+            BuscadorRI ventanaHistorial = new BuscadorRI(guardia);
             ventanaHistorial.TipoPersona = "Residente"; // que buscar
             ventanaHistorial.Show();                    
             this.Hide();
@@ -40,7 +40,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnInvitados_Click(object sender, EventArgs e)
         {
-            BuscadorRI ventanaHistorial = new BuscadorRI();
+            BuscadorRI ventanaHistorial = new BuscadorRI(guardia);
             ventanaHistorial.TipoPersona = "Invitado"; // que buscar
             ventanaHistorial.Show();
             this.Hide();

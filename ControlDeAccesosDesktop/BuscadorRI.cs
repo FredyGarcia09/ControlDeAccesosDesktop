@@ -1,4 +1,5 @@
-﻿using DataAccess.Data;
+﻿using Core.Models;
+using DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,16 @@ using System.Windows.Forms;
 
 namespace ControlDeAccesosDesktop
 {
+    
     public partial class BuscadorRI : Form
     {
         public string TipoPersona { get; internal set; }
+        private Guardia guardia;
 
-        public BuscadorRI()
+        public BuscadorRI(Guardia guardia)
         {
             InitializeComponent();
+            this.guardia = guardia;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -109,7 +113,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnregresar_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar();
+            Buscar nuevaVentana = new Buscar(guardia);
             nuevaVentana.Show();
             this.Hide();
         }
@@ -126,7 +130,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresa_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar();
+            Buscar nuevaVentana = new Buscar(guardia);
             nuevaVentana.Show();
             this.Hide();
         }
