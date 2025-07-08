@@ -222,6 +222,7 @@
             btnGuardarCambios.TabIndex = 24;
             btnGuardarCambios.Text = "Guardar cambios";
             btnGuardarCambios.UseVisualStyleBackColor = true;
+            btnGuardarCambios.Click += btnGuardarCambios_Click;
             // 
             // RegistroResidentes
             // 

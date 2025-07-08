@@ -143,9 +143,70 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Registro nuevaVentana = new Registro(guardia);
-            nuevaVentana.Show();
-            this.Close();
+            if(residente != null)
+            {
+                BuscadorRI nuevaVentana = new BuscadorRI(guardia);
+                nuevaVentana.Show();
+                this.Close();
+            }
+            else
+            {
+                Registro nuevaVentana = new Registro(guardia);
+                nuevaVentana.Show();
+                this.Close();
+            }
+                
+        }
+
+        private async void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            if (residente == null)
+            {
+                MessageBox.Show("No hay residente cargado para modificar.");
+                return;
+            }
+
+            try
+            {
+                using (var context = new ControlDbContext())
+                {
+                    var residenteBD = await context.Residentes.FindAsync(residente.Id);
+                    if (residenteBD == null)
+                    {
+                        MessageBox.Show("Residente no encontrado en la base de datos.");
+                        return;
+                    }
+
+                    // Confirmar antes de aplicar
+                    DialogResult resultado = MessageBox.Show(
+                        "¿Estás seguro de que deseas guardar los cambios? La información anterior se perderá.",
+                        "Confirmar actualización",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (resultado != DialogResult.Yes)
+                    {
+                        return;
+                    }
+
+                    // Actualizar los campos
+                    residenteBD.Nombre = txtNombre.Text.Trim();
+                    residenteBD.Apellidos = txtApellidos.Text.Trim();
+                    residenteBD.Domicilio = txtDomicilio.Text.Trim();
+                    residenteBD.Telefono = txtTelefono.Text.Trim();
+                    residenteBD.ContrasenaHash = txtContrasena.Text.Trim();
+                    residenteBD.CodigoQR = residente.CodigoQR;
+                    residenteBD.Foto = fotoSeleccionada;
+
+                    await context.SaveChangesAsync();
+                    MessageBox.Show("Cambios guardados correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar los cambios: {ex.Message}");
+            }
         }
     }
 }
