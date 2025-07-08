@@ -27,9 +27,9 @@ namespace ControlDeAccesosDesktop
         {
             using (var db = new ControlDbContext())
             {
-                dgvGuardias.DataSource = db.Guardias
-                    .Select(g => new { g.Id, g.Nombre, g.Usuario })
-                    .ToList();
+               // dgvGuardias.DataSource = db.Guardias
+                //    .Select(g => new { g.Id, g.Nombre, g.Usuario })
+                 //   .ToList();
             }
         }
 
@@ -78,7 +78,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (guardiaSeleccionadoId == 0)
+           /* if (guardiaSeleccionadoId == 0)
             {
                 MessageBox.Show("Selecciona un guardia de la tabla para editar.");
                 return;
@@ -99,11 +99,12 @@ namespace ControlDeAccesosDesktop
 
             CargarGuardias();
             LimpiarCampos();
-            MessageBox.Show("Guardia actualizado.");
+            MessageBox.Show("Guardia actualizado.");*/
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            /*
             if (guardiaSeleccionadoId == 0)
             {
                 MessageBox.Show("Selecciona un guardia para eliminar.");
@@ -125,7 +126,7 @@ namespace ControlDeAccesosDesktop
 
             CargarGuardias();
             LimpiarCampos();
-            MessageBox.Show("Guardia eliminado.");
+            MessageBox.Show("Guardia eliminado.");*/
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -135,7 +136,7 @@ namespace ControlDeAccesosDesktop
 
         private void dgvGuardias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && dgvGuardias.CurrentRow != null)
+           /* if (e.RowIndex >= 0 && dgvGuardias.CurrentRow != null)
             {
                 var fila = dgvGuardias.Rows[e.RowIndex];
                 guardiaSeleccionadoId = Convert.ToInt32(fila.Cells["Id"].Value);
@@ -148,7 +149,7 @@ namespace ControlDeAccesosDesktop
                     if (guardia != null)
                         txtContrasena.Text = guardia.ContrasenaHash;
                 }
-            }
+            }*/
         }
     }
 }

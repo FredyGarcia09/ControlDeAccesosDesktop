@@ -27,7 +27,7 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Historial nuevaVentana = new Historial();
+            Historial nuevaVentana = new Historial(GuardiaLogueado);
             nuevaVentana.Show();
             this.Hide();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,14 +15,16 @@ namespace ControlDeAccesosDesktop
     public partial class Buscar : Form
     {
         public string TipoPersona { get; set; } // "Residente" o "Invitado"
-        public Buscar()
+        private Guardia guardia;
+        public Buscar(Guardia guardia)
         {
             InitializeComponent();
+            this.guardia = guardia;
         }
 
         private void btnRegresa_Click(object sender, EventArgs e)
         {
-            Historial nuevaVentana = new Historial();
+            Historial nuevaVentana = new Historial(guardia);
             nuevaVentana.Show();
             this.Hide();
 

@@ -31,14 +31,14 @@ namespace ControlDeAccesosDesktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar();
+            Buscar nuevaVentana = new Buscar(guardia);
             nuevaVentana.Show();
             this.Hide();
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            HistorialES nuevaVentana = new HistorialES(Guardia);
+            HistorialES nuevaVentana = new HistorialES(guardia);
             nuevaVentana.Show();
             this.Hide();
 
