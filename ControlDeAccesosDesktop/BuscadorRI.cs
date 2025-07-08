@@ -13,18 +13,24 @@ using System.Windows.Forms;
 
 namespace ControlDeAccesosDesktop
 {
-    
+
     public partial class BuscadorRI : Form
     {
-        public string TipoPersona { get; internal set; }
+
         private Guardia guardia;
+
+        private Residente residenteEncontrado;
 
         public BuscadorRI(Guardia guardia)
         {
             InitializeComponent();
             this.guardia = guardia;
         }
+        private void BuscadorRI_Load(object sender, EventArgs e)
+        {
+            gbReIn.Visible = false;
 
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
@@ -35,9 +41,7 @@ namespace ControlDeAccesosDesktop
                 string nombre = txtNombre.Text.Trim().ToLower();
                 string direccion = txtDomicilio.Text.Trim().ToLower();
 
-                if (TipoPersona == "Residente")
-                {
-                    var residente = context.Residentes
+                residenteEncontrado = context.Residentes
                         .Include(r => r.Vehiculos)
                         .FirstOrDefault(r =>
                             (!string.IsNullOrEmpty(nombre) &&
@@ -46,76 +50,50 @@ namespace ControlDeAccesosDesktop
                              r.Domicilio.ToLower().Contains(direccion))
                         );
 
-                    if (residente != null)
-                    {
-                        lblNombre.Text = residente.Nombre + " " + residente.Apellidos;
-                        lblTipo.Text = "Residente";
-
-                        var vehiculo = residente.Vehiculos.FirstOrDefault();
-                        if (vehiculo != null)
-                        {
-                            lblMarca.Text = vehiculo.Marca;
-                            lblModelo.Text = vehiculo.Modelo;
-                            lblPlaca.Text = vehiculo.Placas;
-                        }
-                        else
-                        {
-                            lblMarca.Text = "Sin vehículo";
-                            lblModelo.Text = "-";
-                            lblPlaca.Text = "-";
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Residente no encontrado.");
-                        LimpiarLabels();
-                    }
-                }
-                else if (TipoPersona == "Invitado")
+                if (residenteEncontrado != null)
                 {
-                    var invitado = context.Invitados
-                        .FirstOrDefault(i =>
-                            (!string.IsNullOrEmpty(nombre) &&
-                             (i.Nombre + " " + i.Apellidos).ToLower().Contains(nombre))
-                        );
+                    lblNombre.Text = residenteEncontrado.Nombre + " " + residenteEncontrado.Apellidos;
+                    lblTipo.Text = "Residente";
 
-                    if (invitado != null)
+                    // Vehículos
+                    dgvVehiculos.DataSource = residenteEncontrado.Vehiculos
+                        .Select(v => new { v.Marca, v.Modelo, v.Placas }).ToList();
+
+                    // Foto (BLOB → Image)
+                    if (residenteEncontrado.Foto != null && residenteEncontrado.Foto.Length > 0)
                     {
-                        lblNombre.Text = invitado.Nombre + " " + invitado.Apellidos;
-                        lblTipo.Text = "Invitado";
-                        lblMarca.Text = "No aplica";
-                        lblModelo.Text = "No aplica";
-                        lblPlaca.Text = "No aplica";
+                        using (var ms = new MemoryStream(residenteEncontrado.Foto))
+                        {
+                            pbFoto.Image = Image.FromStream(ms);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Invitado no encontrado.");
-                        LimpiarLabels();
+                        pbFoto.Image = null;
                     }
+
+                    btnActualizar.Enabled = true;
+                    btnActualizar.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Residente no encontrado.");
+                    LimpiarCampos();
                 }
             }
         }
-
-        private void LimpiarLabels()
+        private void LimpiarCampos()
         {
             lblNombre.Text = "";
             lblTipo.Text = "";
-            lblMarca.Text = "";
-            lblModelo.Text = "";
-            lblPlaca.Text = "";
+            dgvVehiculos.DataSource = null;
+            residenteEncontrado = null;
         }
-
-
-        private void BuscadorRI_Load(object sender, EventArgs e)
-        {
-            gbReIn.Visible = false;
-        }
-
         private void btnregresar_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar(guardia);
+            Historial nuevaVentana = new Historial(guardia);
             nuevaVentana.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
@@ -130,9 +108,23 @@ namespace ControlDeAccesosDesktop
 
         private void btnRegresa_Click(object sender, EventArgs e)
         {
-            Buscar nuevaVentana = new Buscar(guardia);
+            Historial nuevaVentana = new Historial(guardia);
             nuevaVentana.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            if (residenteEncontrado != null)
+            {
+                var ventana = new RegistroResidentes(residenteEncontrado, guardia);
+                ventana.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Primero realiza una búsqueda válida.");
+            }
         }
     }
 }
