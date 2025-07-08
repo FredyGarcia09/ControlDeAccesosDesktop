@@ -63,7 +63,7 @@ namespace ControlDeAccesosDesktop
 
         private void Historial_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            
         }
     }
 }

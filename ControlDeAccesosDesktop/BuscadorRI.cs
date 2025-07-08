@@ -129,7 +129,7 @@ namespace ControlDeAccesosDesktop
 
         private void BuscadorRI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void txtNombre_Click(object sender, EventArgs e)

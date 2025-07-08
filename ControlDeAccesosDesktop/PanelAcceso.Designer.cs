@@ -250,6 +250,7 @@
             Controls.Add(label1);
             Name = "PanelAcceso";
             Text = "PanelAcceso";
+            FormClosing += PanelAcceso_FormClosing_1;
             ((System.ComponentModel.ISupportInitialize)pbFoto).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxVideo).EndInit();
             ResumeLayout(false);

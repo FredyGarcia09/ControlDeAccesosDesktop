@@ -88,7 +88,7 @@ namespace ControlDeAccesosDesktop
 
         private void HistorialES_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            
         }
     }
 }

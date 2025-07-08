@@ -99,7 +99,7 @@ namespace ControlDeAccesosDesktop
 
         private void AgregarVehiculos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            
         }
     }
 

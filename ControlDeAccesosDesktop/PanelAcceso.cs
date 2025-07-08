@@ -29,7 +29,8 @@ namespace ControlDeAccesosDesktop
             {
                 btnSalida.Visible = false;
             }
-            else{
+            else
+            {
                 btnEntrada.Visible = false;
             }
             btnEntrada.Enabled = false;
@@ -217,6 +218,11 @@ namespace ControlDeAccesosDesktop
             videoSource.NewFrame += VideoSource_NewFrame;
             videoSource.Start();
 
+        }
+
+        private void PanelAcceso_FormClosing_1(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }
