@@ -66,7 +66,6 @@ namespace ControlDeAccesosDesktop
 
         private void Registro_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
         }
     }
 }

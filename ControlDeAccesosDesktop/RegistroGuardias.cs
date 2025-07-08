@@ -71,7 +71,7 @@ namespace ControlDeAccesosDesktop
 
         private void RegistroGuardias_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+
         }
     }
 }

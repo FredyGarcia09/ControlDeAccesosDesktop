@@ -211,7 +211,7 @@ namespace ControlDeAccesosDesktop
 
         private void RegistroResidentes_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+
         }
     }
 }
