@@ -132,7 +132,7 @@
             btnRegresar.TabIndex = 13;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
-            btnRegresar.Click += btnLimpiar_Click;
+            btnRegresar.Click += btnRegresar_Click;
             // 
             // RegistroGuardias
             // 
