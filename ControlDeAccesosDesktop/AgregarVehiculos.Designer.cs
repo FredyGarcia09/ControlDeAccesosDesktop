@@ -30,15 +30,15 @@
         {
             btnRegresar = new Button();
             btnAgregar = new Button();
-            txtContrasena = new TextBox();
-            txtUsuario = new TextBox();
-            txtNombre = new TextBox();
+            txtModelo = new TextBox();
+            txtMarca = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             label5 = new Label();
-            cboResidentes = new ComboBox();
+            cmbResidentes = new ComboBox();
+            txtPlacas = new TextBox();
             SuspendLayout();
             // 
             // btnRegresar
@@ -51,6 +51,7 @@
             btnRegresar.TabIndex = 22;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.Click += btnRegresar_Click;
             // 
             // btnAgregar
             // 
@@ -62,28 +63,21 @@
             btnAgregar.TabIndex = 21;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
-            // txtContrasena
+            // txtModelo
             // 
-            txtContrasena.Location = new Point(244, 241);
-            txtContrasena.Name = "txtContrasena";
-            txtContrasena.PasswordChar = '*';
-            txtContrasena.Size = new Size(246, 23);
-            txtContrasena.TabIndex = 20;
+            txtModelo.Location = new Point(213, 185);
+            txtModelo.Name = "txtModelo";
+            txtModelo.Size = new Size(278, 23);
+            txtModelo.TabIndex = 19;
             // 
-            // txtUsuario
+            // txtMarca
             // 
-            txtUsuario.Location = new Point(213, 185);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(278, 23);
-            txtUsuario.TabIndex = 19;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(212, 128);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(278, 23);
-            txtNombre.TabIndex = 18;
+            txtMarca.Location = new Point(212, 128);
+            txtMarca.Name = "txtMarca";
+            txtMarca.Size = new Size(278, 23);
+            txtMarca.TabIndex = 18;
             // 
             // label4
             // 
@@ -146,13 +140,20 @@
             label5.TabIndex = 23;
             label5.Text = "Residente:";
             // 
-            // cboResidentes
+            // cmbResidentes
             // 
-            cboResidentes.FormattingEnabled = true;
-            cboResidentes.Location = new Point(244, 75);
-            cboResidentes.Name = "cboResidentes";
-            cboResidentes.Size = new Size(247, 23);
-            cboResidentes.TabIndex = 24;
+            cmbResidentes.FormattingEnabled = true;
+            cmbResidentes.Location = new Point(244, 75);
+            cmbResidentes.Name = "cmbResidentes";
+            cmbResidentes.Size = new Size(247, 23);
+            cmbResidentes.TabIndex = 24;
+            // 
+            // txtPlacas
+            // 
+            txtPlacas.Location = new Point(213, 246);
+            txtPlacas.Name = "txtPlacas";
+            txtPlacas.Size = new Size(278, 23);
+            txtPlacas.TabIndex = 25;
             // 
             // AgregarVehiculos
             // 
@@ -160,19 +161,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.f1a42fa5011bce2e3b8de8c8b0a50971;
             ClientSize = new Size(583, 344);
-            Controls.Add(cboResidentes);
+            Controls.Add(txtPlacas);
+            Controls.Add(cmbResidentes);
             Controls.Add(label5);
             Controls.Add(btnRegresar);
             Controls.Add(btnAgregar);
-            Controls.Add(txtContrasena);
-            Controls.Add(txtUsuario);
-            Controls.Add(txtNombre);
+            Controls.Add(txtModelo);
+            Controls.Add(txtMarca);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "AgregarVehiculos";
             Text = "AgregarVehiculos";
+            Load += AgregarVehiculos_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,14 +183,14 @@
 
         private Button btnRegresar;
         private Button btnAgregar;
-        private TextBox txtContrasena;
-        private TextBox txtUsuario;
-        private TextBox txtNombre;
+        private TextBox txtModelo;
+        private TextBox txtMarca;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
         private Label label5;
-        private ComboBox cboResidentes;
+        private ComboBox cmbResidentes;
+        private TextBox txtPlacas;
     }
 }

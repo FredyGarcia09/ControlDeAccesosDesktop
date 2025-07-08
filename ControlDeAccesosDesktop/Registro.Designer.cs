@@ -120,6 +120,7 @@
             btnVehiculos.TabIndex = 6;
             btnVehiculos.Text = "Vehiculos";
             btnVehiculos.UseVisualStyleBackColor = true;
+            btnVehiculos.Click += btnVehiculos_Click;
             // 
             // Registro
             // 
