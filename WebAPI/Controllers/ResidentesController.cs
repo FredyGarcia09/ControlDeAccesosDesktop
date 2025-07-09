@@ -114,6 +114,33 @@ public class ResidentesController : ControllerBase
         });
     }
 
+
+    // GET: api/residentes/5/vehiculos
+    [HttpGet("{id}/Vehiculos")]
+    public async Task<ActionResult<IEnumerable<Vehiculo>>> GetVehiculosDeResidente(int id)
+    {
+        var residente = await _context.Residentes
+            .Include(r => r.Vehiculos)
+            .FirstOrDefaultAsync(r => r.Id == id);
+
+        if (residente == null)
+            return NotFound();
+
+        return Ok(residente.Vehiculos);
+    }
+
+    // GET: api/residentes/5/invitados
+    [HttpGet("{id}/Invitados")]
+    public async Task<ActionResult<IEnumerable<Invitado>>> GetInvitadosDeResidente(int id)
+    {
+        var invitados = await _context.Invitados
+            .Where(i => i.ResidenteId == id)
+            .ToListAsync();
+
+        return Ok(invitados);
+    }
+
+
     public class LoginRequest
     {
         public string Id { get; set; }

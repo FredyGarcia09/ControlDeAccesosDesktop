@@ -2,6 +2,7 @@
 using DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebAPI.DTOS;
 
 namespace Api.Controllers
 {
@@ -98,5 +99,24 @@ namespace Api.Controllers
 
             return NoContent();
         }
+
+        [HttpPost("Sencillo")]
+        public async Task<ActionResult<Vehiculo>> CrearVehiculoDesdeDto([FromBody] VehiculosDTO dto)
+        {
+            var vehiculo = new Vehiculo
+            {
+                Id = dto.Id,
+                Marca = dto.Marca,
+                Modelo = dto.Modelo,
+                Placas = dto.Placas,
+                ResidenteId = dto.ResidenteId
+            };
+
+            _context.Vehiculos.Add(vehiculo);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetVehiculo), new { id = vehiculo.Id }, vehiculo);
+        }
+
     }
 }
