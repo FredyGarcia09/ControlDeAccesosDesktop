@@ -88,4 +88,35 @@ public class ResidentesController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    {
+        if (!int.TryParse(request.Id, out int idInt))
+            return BadRequest("ID inválido");
+
+        var residente = await _context.Residentes.FirstOrDefaultAsync(r => r.Id == idInt);
+
+        if (residente == null)
+            return Unauthorized("Residente no encontrado");
+
+        if (residente.ContrasenaHash != request.Password)
+            return Unauthorized("Contraseña incorrecta");
+
+        return Ok(new
+        {
+            id = residente.Id.ToString(),
+            nombre = residente.Nombre,
+            apellidos = residente.Apellidos,
+            domicilio = residente.Domicilio,
+            telefono = residente.Telefono,
+            codigoQR = residente.CodigoQR
+        });
+    }
+
+    public class LoginRequest
+    {
+        public string Id { get; set; }
+        public string Password { get; set; }
+    }
 }

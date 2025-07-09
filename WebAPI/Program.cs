@@ -5,7 +5,7 @@ using System;
 var builder = WebApplication.CreateBuilder(args);
 
 // Agrega la conexión a MySQL
-var connectionString = "server=localhost;database=controlaccesos;user=root;password=b2r4c6h8;";
+var connectionString = "server=localhost;database=controlaccesos;user=root;password=root;";
 builder.Services.AddDbContext<ControlDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
