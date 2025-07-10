@@ -2,6 +2,8 @@
 using DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using WebAPI.DTOS;
 
 namespace Api.Controllers
 {
@@ -92,5 +94,55 @@ namespace Api.Controllers
 
             return NoContent();
         }
+
+        [HttpPost("Sencillo")]
+        public async Task<ActionResult<Vehiculo>> CrearVehiculoDesdeDto([FromBody] InvitadosDTO dto)
+        {
+            var invitado = new Invitado
+            {
+                Nombre = dto.nombre,
+                Apellidos = dto.apellidos,
+                TipoInvitacion = dto.tipoInvitacion.Equals("Permanente") ? TipoInvitacion.Recurrente : TipoInvitacion.PorFecha,
+                FechaInicioValidez = dto.fechaInicio.Equals("") ? null : DateTime.Parse(dto.fechaInicio),
+                FechaFinValidez = dto.fechaFin.Equals("") ? null : DateTime.Parse(dto.fechaFin),
+                CodigoQR = GenerarCodigoQR(),
+                ResidenteId = int.Parse(dto.residenteId)
+            };
+
+            _context.Invitados.Add(invitado);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetInvitado), new { id = invitado.Id }, invitado);
+        }
+
+
+
+        private string GenerarCodigoQR()
+        {
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            string codigo;
+
+            using (var context = new ControlDbContext())
+            {
+                do
+                {
+                    // Genera una cadena aleatoria de 16 caracteres
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < 16; i++)
+                    {
+                        sb.Append(caracteres[random.Next(caracteres.Length)]);
+                    }
+                    codigo = sb.ToString();
+
+                    // Verifica que no exista
+                } while (context.Residentes.Any(r => r.CodigoQR == codigo) ||
+                         context.Invitados.Any(i => i.CodigoQR == codigo));
+            }
+
+            return codigo;
+        }
     }
+
+
 }

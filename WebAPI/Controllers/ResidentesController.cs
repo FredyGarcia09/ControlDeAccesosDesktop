@@ -1,9 +1,10 @@
 ﻿using Core.Models;
 using DataAccess.Data;
+using DataAccess.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
-using DataAccess.Data;
+using WebAPI.DTOS;
 
 namespace Api.Controllers;
 
@@ -115,30 +116,48 @@ public class ResidentesController : ControllerBase
     }
 
 
-    // GET: api/residentes/5/vehiculos
     [HttpGet("{id}/Vehiculos")]
-    public async Task<ActionResult<IEnumerable<Vehiculo>>> GetVehiculosDeResidente(int id)
+    public async Task<ActionResult<IEnumerable<VehiculosDTO>>> GetVehiculosDeResidente(int id)
     {
-        var residente = await _context.Residentes
-            .Include(r => r.Vehiculos)
-            .FirstOrDefaultAsync(r => r.Id == id);
+        var vehiculos = await _context.Vehiculos
+            .Where(v => v.ResidenteId == id)
+            .Select(v => new VehiculosDTO
+            {
+                Id = v.Id.ToString(),
+                Marca = v.Marca,
+                Modelo = v.Modelo,
+                Placas = v.Placas,
+                ResidenteId = v.ResidenteId.ToString()
+            })
+            .ToListAsync();
 
-        if (residente == null)
-            return NotFound();
-
-        return Ok(residente.Vehiculos);
+        return Ok(vehiculos);
     }
 
-    // GET: api/residentes/5/invitados
+
     [HttpGet("{id}/Invitados")]
-    public async Task<ActionResult<IEnumerable<Invitado>>> GetInvitadosDeResidente(int id)
+    public async Task<ActionResult<IEnumerable<InvitadosDTO>>> GetInvitadosDeResidente(int id)
     {
-        var invitados = await _context.Invitados
+
+        var invitadosDB = await _context.Invitados
             .Where(i => i.ResidenteId == id)
             .ToListAsync();
 
+        var invitados = invitadosDB.Select(i => new InvitadosDTO
+        {
+            Id = i.Id.ToString(),
+            nombre = i.Nombre,
+            apellidos = i.Apellidos,
+            tipoInvitacion = i.TipoInvitacion == TipoInvitacion.PorFecha ? "Temporal" : "Permanente",
+            fechaInicio = i.FechaInicioValidez?.ToString("yyyy-MM-dd") ?? "",
+            fechaFin = i.FechaFinValidez?.ToString("yyyy-MM-dd") ?? "",
+            residenteId = i.ResidenteId.ToString(),
+            codigoQR = i.CodigoQR
+        }).ToList();
+
         return Ok(invitados);
     }
+
 
 
     public class LoginRequest

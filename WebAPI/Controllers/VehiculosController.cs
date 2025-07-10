@@ -105,11 +105,10 @@ namespace Api.Controllers
         {
             var vehiculo = new Vehiculo
             {
-                Id = dto.Id,
                 Marca = dto.Marca,
                 Modelo = dto.Modelo,
                 Placas = dto.Placas,
-                ResidenteId = dto.ResidenteId
+                ResidenteId = int.Parse(dto.ResidenteId)
             };
 
             _context.Vehiculos.Add(vehiculo);
@@ -118,5 +117,7 @@ namespace Api.Controllers
             return CreatedAtAction(nameof(GetVehiculo), new { id = vehiculo.Id }, vehiculo);
         }
 
+
     }
+
 }
